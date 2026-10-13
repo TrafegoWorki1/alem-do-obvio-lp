@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Além do Óbvio — imersão presencial Full Face com o Dr. Ritchie, em São Paulo." />
+  <meta name="theme-color" content="#090909" />
+  <title>Além do Óbvio — Dr. Ritchie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!--
+    CONFIGURAÇÃO ANTES DE PUBLICAR
+    1. Substitua assets/turma-agosto-2026.jpg pela foto real da turma.
+    2. Preencha AO_PIXEL_ID, AO_GA4_ID e AO_GTM_ID abaixo.
+    3. Configure LEAD_ENDPOINT para seu webhook/CRM/Apps Script. O endpoint deve receber JSON e responder 2xx.
+    4. Nos anúncios Meta, passe utms e parâmetros como campaign_name={{campaign.name}}, adset_name={{adset.name}}, ad_name={{ad.name}}.
+  -->
+  <style>
+    :root { --bg:#090909; --ink:#f3efe8; --muted:#b9b2a8; --gold:#c9a86a; --gold-light:#e3cb95; --line:rgba(227,203,149,.24); --panel:#11100e; --danger:#ef9c8c; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; background:var(--bg); }
+    body { margin:0; min-width:320px; background:var(--bg); color:var(--ink); font-family:Inter,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+    button,input,select { font:inherit; }
+    .shell { max-width:1280px; margin:0 auto; padding:0 20px; }
+    .hero { position:relative; min-height:100svh; display:grid; align-items:end; isolation:isolate; overflow:hidden; border-bottom:1px solid var(--line); }
+    .hero::before { content:""; position:absolute; inset:0; z-index:-2; background:linear-gradient(90deg,rgba(9,9,9,.96) 0%,rgba(9,9,9,.72) 43%,rgba(9,9,9,.31) 100%), url('assets/turma-agosto-2026.jpg') center/cover no-repeat, radial-gradient(circle at 80% 15%,#554327 0%,#18130d 38%,#090909 75%); }
+    .hero::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(0deg,#090909 0%, transparent 42%, rgba(0,0,0,.13)); }
+    .hero-inner { width:100%; padding:clamp(88px,15vh,156px) 0 48px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; margin:0 0 24px; padding:8px 11px; color:var(--gold-light); border:1px solid rgba(227,203,149,.48); background:rgba(9,9,9,.4); font-size:10px; letter-spacing:.12em; line-height:1; text-transform:uppercase; }
+    .eyebrow::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--gold); box-shadow:0 0 16px var(--gold); }
+    h1,h2 { margin:0; font-family:"Cormorant Garamond",Georgia,serif; font-weight:600; text-wrap:balance; }
+    h1 { max-width:790px; font-size:clamp(47px,8.2vw,96px); line-height:.89; letter-spacing:-.04em; }
+    .lead { max-width:580px; margin:29px 0 0; color:#e3ddd4; font-size:clamp(16px,2.5vw,19px); line-height:1.58; text-wrap:pretty; }
+    .cta { display:inline-flex; align-items:center; justify-content:center; min-height:52px; margin-top:31px; padding:0 23px; border:1px solid var(--gold-light); background:var(--gold-light); color:#17120a; font-weight:700; font-size:14px; text-decoration:none; transition:transform .2s,background .2s; cursor:pointer; }
+    .cta:hover,.cta:focus-visible { transform:translateY(-2px); background:#f3dcaa; }
+    .cta:focus-visible,input:focus-visible,select:focus-visible { outline:2px solid #fff; outline-offset:3px; }
+    .hero-note { margin-top:20px; color:rgba(243,239,232,.68); font-size:11px; letter-spacing:.03em; }
+    .decision { padding:84px 0 92px; }
+    .decision-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(330px,460px); gap:clamp(44px,8vw,130px); align-items:start; }
+    .section-kicker { margin:0 0 14px; color:var(--gold); font-size:11px; line-height:1.3; letter-spacing:.13em; text-transform:uppercase; }
+    h2 { max-width:620px; font-size:clamp(47px,6vw,76px); line-height:.9; letter-spacing:-.04em; }
+    .body-copy { max-width:600px; margin:27px 0 0; color:#d5cec4; font-size:16px; line-height:1.73; }
+    blockquote { position:relative; max-width:535px; margin:47px 0 0; padding:22px 0 0; border-top:1px solid var(--line); }
+    blockquote p { margin:0; font-family:"Cormorant Garamond",Georgia,serif; color:var(--gold-light); font-size:clamp(25px,3vw,33px); font-weight:600; line-height:1.08; }
+    blockquote footer { margin-top:13px; color:#999188; font-size:11px; letter-spacing:.04em; }
+    .included { margin:42px 0 0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:12px 24px; list-style:none; color:#d7d0c7; font-size:13px; }
+    .included li { display:flex; gap:10px; align-items:flex-start; }
+    .included li::before { content:"✦"; color:var(--gold); font-size:11px; margin-top:2px; }
+    .form-panel { position:relative; padding:28px; border:1px solid var(--line); background:linear-gradient(145deg,rgba(227,203,149,.07),transparent 30%),var(--panel); box-shadow:0 20px 80px rgba(0,0,0,.28); }
+    .form-panel h3 { margin:0; font-family:"Cormorant Garamond",Georgia,serif; color:var(--gold-light); font-size:32px; line-height:1; font-weight:600; }
+    .form-intro { margin:10px 0 25px; color:#aaa39a; font-size:12px; line-height:1.5; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .field { display:grid; gap:7px; }
+    .field.full { grid-column:1/-1; }
+    label { color:#d8d0c5; font-size:11px; font-weight:600; letter-spacing:.035em; }
+    input,select { width:100%; min-height:46px; padding:0 12px; border:1px solid rgba(243,239,232,.2); border-radius:0; color:var(--ink); background:#0d0c0b; font-size:14px; }
+    input::placeholder { color:#716c65; }
+    select:invalid { color:#716c65; }
+    option { color:#111; }
+    .consent { display:flex; gap:10px; margin:18px 0 0; color:#aaa39a; font-size:11px; line-height:1.42; cursor:pointer; }
+    .consent input { flex:none; width:17px; min-height:17px; margin:0; accent-color:var(--gold); }
+    .submit { width:100%; min-height:54px; margin-top:19px; border:1px solid var(--gold-light); border-radius:0; background:var(--gold-light); color:#17120a; font-weight:700; font-size:14px; cursor:pointer; transition:background .2s,transform .2s; }
+    .submit:hover,.submit:focus-visible { background:#f3dcaa; transform:translateY(-1px); }
+    .submit:disabled { cursor:wait; opacity:.7; }
+    .microcopy { margin:12px 0 0; color:#817a71; font-size:10px; line-height:1.4; text-align:center; }
+    .status { min-height:18px; margin:12px 0 0; color:var(--gold-light); font-size:11px; text-align:center; }
+    .status.error { color:var(--danger); }
+    .footer { padding:20px 0 30px; border-top:1px solid rgba(243,239,232,.09); color:#7e7770; font-size:10px; line-height:1.6; }
+    .footer a { color:#aaa095; }
+    @media (max-width:780px) { .shell { padding:0 18px; } .hero::before { background:linear-gradient(0deg,#090909 2%,rgba(9,9,9,.46) 68%,rgba(9,9,9,.38)),url('assets/turma-agosto-2026.jpg') center/cover no-repeat,radial-gradient(circle at 80% 15%,#554327 0%,#18130d 38%,#090909 75%); } .hero-inner { padding-top:110px; padding-bottom:42px; } .decision { padding:64px 0 68px; } .decision-grid { grid-template-columns:1fr; gap:44px; } .form-panel { padding:23px 18px; } }
+    @media (max-width:440px) { .form-grid,.included { grid-template-columns:1fr; } .form-panel { margin:0 -2px; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none!important; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell hero-inner">
+        <p class="eyebrow">Última turma de 2026 · 12 vagas</p>
+        <h1 id="hero-title" data-title>Você já acompanha o Dr. Ritchie. Agora aprenda ao lado dele.</h1>
+        <p class="lead">4, 5 e 6 de dezembro, em São Paulo. Três dias de imersão presencial, com prática em pacientes reais e supervisão do Dr. Ritchie.</p>
+        <a class="cta" href="#inscricao">Falar com a equipe agora</a>
+        <p class="hero-note">Além do Óbvio · Imersão presencial Full Face</p>
+      </div>
+    </section>
+
+    <section class="decision" id="inscricao" aria-labelledby="decision-title">
+      <div class="shell decision-grid">
+        <div>
+          <p class="section-kicker">Além do Óbvio · São Paulo</p>
+          <h2 id="decision-title">Turma pequena, atenção de verdade</h2>
+          <p class="body-copy">Só 12 alunos. Você atende pelo menos 3 full faces completas, é acompanhado e discute cada decisão clínica no mesmo dia. Têmpora, glabela, nariz e crow lifting com o raciocínio por trás de cada decisão.</p>
+          <blockquote>
+            <p>“A técnica do Ritchie é genial, pra mim é um divisor de águas.”</p>
+            <footer>Aluno da turma de agosto de 2026</footer>
+          </blockquote>
+          <ul class="included" aria-label="O que está incluído">
+            <li>Material e kit</li><li>Alimentação nos 3 dias</li><li>Certificado e troféu</li><li>Gravação por 3 meses</li>
+          </ul>
+        </div>
+
+        <div class="form-panel">
+          <h3>Receba as condições</h3>
+          <p class="form-intro">Preencha para falar diretamente com a equipe.</p>
+          <form id="lead-form" novalidate>
+            <div class="form-grid">
+              <div class="field full"><label for="name">Nome e sobrenome</label><input id="name" name="name" autocomplete="name" required placeholder="Seu nome completo" /></div>
+              <div class="field"><label for="whatsapp">WhatsApp com DDD</label><input id="whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" required placeholder="(11) 99999-9999" /></div>
+              <div class="field"><label for="instagram">Instagram</label><input id="instagram" name="instagram" autocomplete="username" required placeholder="@seuinstagram" /></div>
+              <div class="field full"><label for="revenue">Faturamento mensal</label><select id="revenue" name="revenue" required><option value="" disabled selected>Selecione uma faixa</option><option>Até R$ 10 mil</option><option>De R$ 10 mil a R$ 25 mil</option><option>De R$ 25 mil a R$ 50 mil</option><option>De R$ 50 mil a R$ 100 mil</option><option>Acima de R$ 100 mil</option></select></div>
+              <div class="field"><label for="difficulty1">Principal dificuldade hoje</label><input id="difficulty1" name="difficulty1" required maxlength="80" placeholder="Ex.: segurança no Full Face" /></div>
+              <div class="field"><label for="difficulty2">Segunda dificuldade hoje</label><input id="difficulty2" name="difficulty2" required maxlength="80" placeholder="Ex.: captação de pacientes" /></div>
+            </div>
+            <label class="consent"><input id="consent" name="consent" type="checkbox" required /><span>Concordo em ser contatado(a) pela equipe pelo WhatsApp.</span></label>
+            <button class="submit" type="submit">Quero saber valores e condições</button>
+            <p class="microcopy">A equipe responde no WhatsApp com o investimento e as formas de pagamento.</p>
+            <p class="status" id="status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell">Ao enviar, você concorda com o contato sobre o Além do Óbvio. Seus dados serão usados para atendimento comercial e mensuração de campanha. <a href="#" aria-label="Abrir política de privacidade">Política de privacidade</a>.</div></footer>
+
+  <script>
+    const CONFIG = {
+      pixelId: 'AO_PIXEL_ID', ga4Id: 'AO_GA4_ID', gtmId: 'AO_GTM_ID',
+      leadEndpoint: '', // Ex.: https://seu-dominio.com/api/leads ou Apps Script Web App
+      whatsapp: '5511936206406', geoEndpoint: 'https://ipapi.co/json/'
+    };
+    const KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','campaign_name','adset_name','ad_name','campaign_id','adset_id','ad_id','fbclid'];
+    const params = new URLSearchParams(location.search);
+    const cookie = (name) => document.cookie.split('; ').find(row => row.startsWith(name+'='))?.split('=').slice(1).join('=') || '';
+    const setCookie = (name,value) => document.cookie = `${name}=${encodeURIComponent(value)}; Max-Age=2592000; Path=/; SameSite=Lax${location.protocol==='https:'?'; Secure':''}`;
+    const getStored = () => { try { return JSON.parse(sessionStorage.getItem('ao-attribution') || '{}'); } catch { return {}; } };
+    const attribution = getStored();
+    KEYS.forEach(key => { if (params.get(key)) attribution[key] = params.get(key); });
+    attribution.fbp = attribution.fbp || cookie('_fbp'); attribution.fbc = attribution.fbc || cookie('_fbc');
+    if (attribution.fbclid && !attribution.fbc) attribution.fbc = `fb.1.${Date.now()}.${attribution.fbclid}`;
+    attribution.landing_page = location.href; attribution.captured_at = attribution.captured_at || new Date().toISOString();
+    sessionStorage.setItem('ao-attribution', JSON.stringify(attribution)); setCookie('ao-attribution', JSON.stringify(attribution));
+
+    // Title A/B: use ?headline=b or ?headline=c in the ad URL. Default is A.
+    const headlines = { a:'Você já acompanha o Dr. Ritchie. Agora aprenda ao lado dele.', b:'O Full Face que você vê no Instagram, feito por você, com ele na sala.', c:'Além do Óbvio: última turma de 2026' };
+    const variant = (params.get('headline') || 'a').toLowerCase();
+    document.querySelector('[data-title]').textContent = headlines[variant] || headlines.a;
+
+    // Geolocation uses approximate IP location; failures are ignored so the form never blocks.
+    fetch(CONFIG.geoEndpoint, { headers:{Accept:'application/json'} }).then(r=>r.ok?r.json():Promise.reject()).then(geo => {
+      attribution.city = geo.city || ''; attribution.region = geo.region_code || geo.region || ''; attribution.country = geo.country_code || geo.country || '';
+      sessionStorage.setItem('ao-attribution', JSON.stringify(attribution)); setCookie('ao-attribution', JSON.stringify(attribution));
+    }).catch(()=>{});
+
+    // Meta Pixel is only initialized when configured. For production, align consent behavior with the privacy policy/CMP.
+    if (CONFIG.pixelId && CONFIG.pixelId !== 'AO_PIXEL_ID') {
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', CONFIG.pixelId); fbq('track','PageView');
+    }
+    if (CONFIG.gtmId && CONFIG.gtmId !== 'AO_GTM_ID') { const s=document.createElement('script'); s.async=true; s.src=`https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(CONFIG.gtmId)}`; document.head.appendChild(s); window.dataLayer=window.dataLayer||[]; window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'}); }
+    if (CONFIG.ga4Id && CONFIG.ga4Id !== 'AO_GA4_ID') { const s=document.createElement('script'); s.async=true; s.src=`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(CONFIG.ga4Id)}`; document.head.appendChild(s); window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments)} window.gtag=gtag; gtag('js',new Date()); gtag('config',CONFIG.ga4Id); }
+
+    const $ = (id) => document.getElementById(id);
+    $('whatsapp').addEventListener('input', e => { const n=e.target.value.replace(/\D/g,'').slice(0,11); e.target.value=n.length>10?`(${n.slice(0,2)}) ${n.slice(2,7)}-${n.slice(7)}`:n.length>6?`(${n.slice(0,2)}) ${n.slice(2,6)}-${n.slice(6)}`:n.length>2?`(${n.slice(0,2)}) ${n.slice(2)}`:n?`(${n}`:''; });
+    $('instagram').addEventListener('blur', e => { const v=e.target.value.trim().replace(/^@*/,''); if(v) e.target.value='@'+v; });
+
+    $('lead-form').addEventListener('submit', async (event) => {
+      event.preventDefault(); const form=event.currentTarget, status=$('status'), submit=form.querySelector('button');
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      const values=Object.fromEntries(new FormData(form).entries()); const reference='AO-'+Math.random().toString(36).slice(2,6).toUpperCase(); const eventId=(crypto.randomUUID?.() || `${Date.now()}-${Math.random()}`);
+      const lead={...values, reference, event_id:eventId, submitted_at:new Date().toISOString(), attribution:{...attribution}, headline_variant:variant};
+      submit.disabled=true; status.className='status'; status.textContent='Preparando seu atendimento…';
+      try { if (CONFIG.leadEndpoint) await fetch(CONFIG.leadEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead),keepalive:true});
+        if (window.fbq) fbq('track','Lead',{content_name:'Além do Óbvio',currency:'BRL'},{eventID:eventId});
+        if (window.gtag) gtag('event','generate_lead',{event_id:eventId,campaign:attribution.campaign_name||attribution.utm_campaign||''});
+        const city=[attribution.city,attribution.region].filter(Boolean).join('/') || 'Não identificado';
+        const campaign=attribution.campaign_name || attribution.utm_campaign || 'Não identificado'; const adset=attribution.adset_name || 'Não identificado'; const ad=attribution.ad_name || 'Não identificado';
+        const message=`Olá! Quero saber valores e condições do Além do Óbvio (4 a 6 de dezembro).\n\nNome: ${values.name}\nInstagram: ${values.instagram}\nFaturamento mensal: ${values.revenue}\nMaiores dificuldades: ${values.difficulty1} / ${values.difficulty2}\nCampanha: ${campaign} | Conjunto: ${adset} | Anúncio: ${ad}\nCidade: ${city}\nRef: ${reference}\n\nNão apague esta mensagem, ela é enviada ao comercial com as suas informações.`;
+        status.textContent='Redirecionando para o WhatsApp…'; setTimeout(()=>location.assign(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`),250);
+      } catch (error) { console.error(error); status.className='status error'; status.textContent='Não foi possível registrar agora. Tente novamente.'; submit.disabled=false; }
+    });
+  </script>
+</body>
+</html>
